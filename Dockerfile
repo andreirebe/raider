@@ -28,6 +28,9 @@ WORKDIR /usr/src/raider
 COPY ./res/assets/ ./res/assets/
 COPY --from=build /app/target/release/raider /usr/local/bin/raider
 
+# Copy your config file to the appropriate location
+COPY config.cfg /etc/raider.cfg
+
 CMD [ "raider", "-c", "/etc/raider.cfg" ]
 
 EXPOSE 8080
